@@ -18,9 +18,13 @@ public class ConvertCurrencyCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
 
         if(args.length<1) {
+
             sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "You must specify two currencies!");
+
         } else if(args.length == 1) {
+
             sender.sendMessage(CurrencyConverter.pluginHeader + ": " + CurrencyProcessor.currencyValue(args[0]));
+
         } else {
 
             try {
@@ -42,6 +46,7 @@ public class ConvertCurrencyCommand implements CommandExecutor {
                 } else {
                     sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "Invalid currency!");
                 }
+
             } catch (Exception e) {
                 sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "Unexpected input!");
             }

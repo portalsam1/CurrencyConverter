@@ -20,6 +20,7 @@ public class CurrencyUpdateCommand implements CommandExecutor {
             sender.sendMessage(CurrencyConverter.pluginHeader + ": Attempting to refresh currency data.");
         } else if(args.length == 1) {
             if(args[0].equalsIgnoreCase("disable")) {
+                Bukkit.getScheduler().cancelTask(CurrencyAPI.updateTask.getTaskId());
                 sender.sendMessage(CurrencyConverter.pluginHeader + ": Updating currency " + ChatColor.RED + "disabled" +
                         ChatColor.WHITE + ", use /updatecurrency to re-enable.");
             } else {

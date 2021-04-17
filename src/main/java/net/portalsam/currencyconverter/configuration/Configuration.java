@@ -1,6 +1,5 @@
 package net.portalsam.currencyconverter.configuration;
 
-import net.portalsam.currencyconverter.CurrencyConverter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
