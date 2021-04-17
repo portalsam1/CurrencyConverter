@@ -9,6 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
 
 public class ConvertCurrencyCommand implements CommandExecutor {
 
@@ -23,7 +24,10 @@ public class ConvertCurrencyCommand implements CommandExecutor {
             sender.sendMessage(CurrencyConverter.pluginHeader + ": " + CurrencyProcessor.currencyValue(args[0]));
         } else {
 
-            String[] currencyArgumentsOne = args[0].split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
+            String[] tempArgument = args[0].split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
+            String[] currencyArgumentsOne = new String[2];
+            currencyArgumentsOne[0] = tempArgument[0] + tempArgument[1] + tempArgument[2];
+            currencyArgumentsOne[1] = tempArgument[3];
 
             double convertedAmount = CurrencyProcessor.convertCurrency(Double.parseDouble(currencyArgumentsOne[0]), currencyArgumentsOne[1], args[1]);
 
