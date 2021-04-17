@@ -1,0 +1,25 @@
+name: CurrencyConverter
+version: ${project.version}
+main: net.portalsam.currencyconverter.CurrencyConverter
+api-version: 1.16
+prefix: CurrencyConverter
+authors: [ portalsam ]
+description: Uses https://free.currconv.com/ to convert currencies from a command.
+website: https://portalsam.net
+
+permissions:
+  currencyconverter.convertcurrency:
+    description: Lets the player with this permission convert currency.
+    default: true
+  currencyconverter.database:
+    description: Lets the player update or cancel updates to the conversion data.
+    default: false
+commands:
+  convertcurrency:
+    description: Convert one currency value into another, supports USD, CAD, AUD, EUR, GBP, and JPY.
+    usage: /<command> <number><currencyone> <currencytwo>
+    permission: currencyconverter.convertcurrency
+  updatecurrency:
+    description: Updates the currency conversion values, use argument "disable" to disable the automatic 2 hour updates.
+    usage: /<command> disable(optional)
+    permission: currencyconverter.database
