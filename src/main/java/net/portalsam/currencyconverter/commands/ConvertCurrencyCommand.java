@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
-import java.util.Arrays;
 
 public class ConvertCurrencyCommand implements CommandExecutor {
 
