@@ -30,7 +30,7 @@ Currency information is grabbed from https://free.currencyconverterapi.com/, Cur
   ```
   *Result:*
   
-  <img src="https://portalsam.net/wp-content/uploads/2021/04/currencyconverter2.png" width="556" height="25" />
+  <img src="https://portalsam.net/wp-content/uploads/2021/04/currencyconverter2.png" width="600" height="25" />
   
 * **/updatecurrency**
  
