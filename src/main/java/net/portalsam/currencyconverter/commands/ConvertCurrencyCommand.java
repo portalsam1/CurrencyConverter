@@ -25,8 +25,13 @@ public class ConvertCurrencyCommand implements CommandExecutor {
 
             String[] tempArgument = args[0].split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
             String[] currencyArgumentsOne = new String[2];
-            currencyArgumentsOne[0] = tempArgument[0] + tempArgument[1] + tempArgument[2];
-            currencyArgumentsOne[1] = tempArgument[3];
+            if(args[0].contains(".")) {
+                currencyArgumentsOne[0] = tempArgument[0] + tempArgument[1] + tempArgument[2];
+                currencyArgumentsOne[1] = tempArgument[3];
+            } else {
+                currencyArgumentsOne[0] = tempArgument[0];
+                currencyArgumentsOne[1] = tempArgument[1];
+            }
 
             double convertedAmount = CurrencyProcessor.convertCurrency(Double.parseDouble(currencyArgumentsOne[0]), currencyArgumentsOne[1], args[1]);
 

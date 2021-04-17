@@ -20,6 +20,14 @@
 
     <url>https://portalsam.net</url>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub portalsam1 Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/portalsam1/CurrencyConverter</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -75,4 +83,5 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
 </project>
