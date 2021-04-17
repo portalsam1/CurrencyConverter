@@ -23,23 +23,27 @@ public class ConvertCurrencyCommand implements CommandExecutor {
             sender.sendMessage(CurrencyConverter.pluginHeader + ": " + CurrencyProcessor.currencyValue(args[0]));
         } else {
 
-            String[] tempArgument = args[0].split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
-            String[] currencyArgumentsOne = new String[2];
-            if(args[0].contains(".")) {
-                currencyArgumentsOne[0] = tempArgument[0] + tempArgument[1] + tempArgument[2];
-                currencyArgumentsOne[1] = tempArgument[3];
-            } else {
-                currencyArgumentsOne[0] = tempArgument[0];
-                currencyArgumentsOne[1] = tempArgument[1];
-            }
+            try {
+                String[] tempArgument = args[0].split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");
+                String[] currencyArgumentsOne = new String[2];
+                if (args[0].contains(".")) {
+                    currencyArgumentsOne[0] = tempArgument[0] + tempArgument[1] + tempArgument[2];
+                    currencyArgumentsOne[1] = tempArgument[3];
+                } else {
+                    currencyArgumentsOne[0] = tempArgument[0];
+                    currencyArgumentsOne[1] = tempArgument[1];
+                }
 
-            double convertedAmount = CurrencyProcessor.convertCurrency(Double.parseDouble(currencyArgumentsOne[0]), currencyArgumentsOne[1], args[1]);
+                double convertedAmount = CurrencyProcessor.convertCurrency(Double.parseDouble(currencyArgumentsOne[0]), currencyArgumentsOne[1], args[1]);
 
-            if(convertedAmount > 0) {
-                sender.sendMessage(CurrencyConverter.pluginHeader + ": " + decimalFormat.format(Double.parseDouble(currencyArgumentsOne[0])) + " " + ChatColor.GREEN + currencyArgumentsOne[1].toUpperCase() +
-                        ChatColor.WHITE + " is " + decimalFormat.format(convertedAmount) + " " + ChatColor.GREEN + args[1].toUpperCase());
-            } else {
-                sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "Invalid currency!");
+                if (convertedAmount > 0) {
+                    sender.sendMessage(CurrencyConverter.pluginHeader + ": " + decimalFormat.format(Double.parseDouble(currencyArgumentsOne[0])) + " " + ChatColor.GREEN + currencyArgumentsOne[1].toUpperCase() +
+                            ChatColor.WHITE + " is " + decimalFormat.format(convertedAmount) + " " + ChatColor.GREEN + args[1].toUpperCase());
+                } else {
+                    sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "Invalid currency!");
+                }
+            } catch (Exception e) {
+                sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "Unexpected input!");
             }
 
         }
