@@ -20,7 +20,7 @@ public class ConvertCurrencyCommand implements CommandExecutor {
         if(args.length<1) {
             sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "You must specify two currencies!");
         } else if(args.length == 1) {
-            sender.sendMessage(CurrencyConverter.pluginHeader + ": " + decimalFormat.format(Double.parseDouble(CurrencyProcessor.currencyValue(args[0]))));
+            sender.sendMessage(CurrencyConverter.pluginHeader + ": " + CurrencyProcessor.currencyValue(args[0]));
         } else {
 
             String[] currencyArgumentsOne = args[0].split("(?<=\\D)(?=\\d)|(?<=\\d)(?=\\D)");

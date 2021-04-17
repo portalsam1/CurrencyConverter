@@ -2,6 +2,8 @@ package net.portalsam.currencyconverter.currency;
 
 import org.bukkit.ChatColor;
 
+import java.text.DecimalFormat;
+
 public class CurrencyProcessor {
 
     /*/ Default values from Saturday April 17, 2021. One US Dollar is worth 'x' in these currencies./*/
@@ -11,6 +13,8 @@ public class CurrencyProcessor {
     public static double gbp = 0.722543;
     public static double eur = 0.834589;
     public static double jpy = 108.817504;
+
+    private static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     public static void updateValues(double newCad, double newAud, double newGbp, double newEur, double newJpy) {
 
@@ -30,15 +34,15 @@ public class CurrencyProcessor {
             case "USD":
                 return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + USD + ChatColor.GREEN + " US Dollar";
             case "CAD":
-                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + cad + ChatColor.GREEN + " Canadian Dollar";
+                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + decimalFormat.format(cad) + ChatColor.GREEN + " Canadian Dollar";
             case "AUD":
-                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + aud + ChatColor.GREEN + " Australian Dollar";
+                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + decimalFormat.format(aud) + ChatColor.GREEN + " Australian Dollar";
             case "GBP":
-                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + gbp + ChatColor.GREEN + " Great British Pound";
+                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + decimalFormat.format(gbp) + ChatColor.GREEN + " Great British Pound";
             case "EUR":
-                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + eur + ChatColor.GREEN + " Euro";
+                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + decimalFormat.format(eur) + ChatColor.GREEN + " Euro";
             case "JPY":
-                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + jpy + ChatColor.GREEN + " Japanese Yen";
+                return "One " + ChatColor.GREEN + "US Dollar" + ChatColor.WHITE + " is worth " + decimalFormat.format(jpy) + ChatColor.GREEN + " Japanese Yen";
             default:
                 return ChatColor.RED + "Invalid currency specified.";
         }

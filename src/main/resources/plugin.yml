@@ -13,7 +13,7 @@ permissions:
     default: true
   currencyconverter.database:
     description: Lets the player update or cancel updates to the conversion data.
-    default: false
+    default: op
 commands:
   convertcurrency:
     description: Convert one currency value into another, supports USD, CAD, AUD, EUR, GBP, and JPY.
