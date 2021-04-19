@@ -20,7 +20,7 @@ Currency information is grabbed from https://free.currencyconverterapi.com/, Cur
   ```
   *Result:*
   
-  <img src="https://portalsam.net/wp-content/uploads/2021/04/currencyconverter1.png" width="700" height="40" />
+  <img src="https://portalsam.net/wp-content/uploads/2021/04/currencyconverter1.png" width="700" height="45" />
   
   • When supplied two arguments of a number and a 3 letter currency type together and another currency type, it will show its value in that requested currency. This command can convert between all currencies supported.
   
@@ -53,6 +53,18 @@ Currency information is grabbed from https://free.currencyconverterapi.com/, Cur
   *Result:*
   
   <img src="https://portalsam.net/wp-content/uploads/2021/04/currencyconverter4.png" width="658" height="45" />
+  
+* **/convertbalance**
+  
+  • This command uses vault to get the players balance and convert it to another currency specfied. Note: this command will be disabled if Vault is not detected, disabling Vault with a plugin like PlugMan and attempting to load CurrencyConverter will cause CurrencyConverter to crash.
+  
+  *Example:*
+  ```
+  /convertbalance usd eur
+  ```
+  *Result:*
+  
+  <img src="https://portalsam.net/wp-content/uploads/2021/04/currencyconverter5.png" width="600" height="20" />
   
   # Help
   
