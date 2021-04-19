@@ -46,6 +46,7 @@ public class CurrencyProcessor {
             default:
                 return ChatColor.RED + "Invalid currency specified.";
         }
+
     }
 
     /*/ Converting functions. /*/
@@ -77,6 +78,7 @@ public class CurrencyProcessor {
                 return usd * jpy;
             default:
                 return -1d;
+
         }
     }
 
@@ -101,6 +103,7 @@ public class CurrencyProcessor {
                 return amount / jpy;
             default:
                 return -1d;
+
         }
     }
 

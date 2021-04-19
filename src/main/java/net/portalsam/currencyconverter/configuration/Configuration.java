@@ -23,9 +23,10 @@ public class Configuration {
 
         apiKey = config.getString("apiKey");
 
+        /*/ Warn server that the default apiKey is still being used. /*/
         assert apiKey != null;
         if(apiKey.equals("0fb286389316ad37a985"))
-            plugin.getLogger().warning(" - You are still using the default API Key! " +
+            plugin.getLogger().warning("- You are still using the default API Key! " +
                     "Remaining queries may already be zero, it is HIGHLY recommended you get your own API Key from " +
                     "https://free.currconv.com/. The plugin will still function without updating but results may be inaccurate.");
 

@@ -17,17 +17,17 @@ public class CurrencyUpdateCommand implements CommandExecutor {
         if(args.length < 1) {
             Bukkit.getScheduler().cancelTask(CurrencyAPI.updateTask.getTaskId());
             CurrencyAPI.updateCurrencyMap();
-            sender.sendMessage(CurrencyConverter.pluginHeader + ": Attempting to refresh currency data.");
+            sender.sendMessage(CurrencyConverter.getPluginHeader() + ": Attempting to refresh currency data.");
         } else if(args.length == 1) {
             if(args[0].equalsIgnoreCase("disable")) {
                 Bukkit.getScheduler().cancelTask(CurrencyAPI.updateTask.getTaskId());
-                sender.sendMessage(CurrencyConverter.pluginHeader + ": Updating currency " + ChatColor.RED + "disabled" +
+                sender.sendMessage(CurrencyConverter.getPluginHeader() + ": Updating currency " + ChatColor.RED + "disabled" +
                         ChatColor.WHITE + ", use /updatecurrency to re-enable.");
             } else {
-                sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "Invalid argument.");
+                sender.sendMessage(CurrencyConverter.getPluginHeader() + ": " + ChatColor.RED + "Invalid argument.");
             }
         } else {
-            sender.sendMessage(CurrencyConverter.pluginHeader + ": " + ChatColor.RED + "Invalid number of arguments.");
+            sender.sendMessage(CurrencyConverter.getPluginHeader() + ": " + ChatColor.RED + "Invalid number of arguments.");
         }
 
         return true;

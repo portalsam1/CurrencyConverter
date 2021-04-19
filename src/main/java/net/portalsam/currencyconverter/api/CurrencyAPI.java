@@ -40,7 +40,7 @@ public class CurrencyAPI {
             currencyAPIURLThree = new URL(baseURL + "USD_JPY&compact=ultra&apiKey=" + Configuration.getApiKey());
         } catch (MalformedURLException e) {
             CurrencyConverter.getLog().severe(String.format("[%s] - MalformedURL, this should not happen. Disabling plugin.",
-                    CurrencyConverter.pluginHeader));
+                    plugin.getDescription().getName()));
             javaPlugin.getPluginLoader().disablePlugin(javaPlugin);
         }
 
@@ -83,11 +83,11 @@ public class CurrencyAPI {
         } catch (Exception e) {
             e.printStackTrace();
             CurrencyConverter.getLog().severe(String.format("[%s] - Could not read from URL, is it down, are you out of requests?",
-                    CurrencyConverter.pluginHeader));
+                    CurrencyConverter.getInstance().getDescription().getName()));
         }
 
         /*/ Update currencyMap every 2 hours. /*/
-        updateTask = Bukkit.getScheduler().runTaskLater(javaPlugin, CurrencyAPI::updateCurrencyMap, 3600000);
+        updateTask = Bukkit.getScheduler().runTaskLater(javaPlugin, CurrencyAPI::updateCurrencyMap, 144000);
 
     }
 
