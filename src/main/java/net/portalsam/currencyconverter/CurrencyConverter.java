@@ -5,6 +5,9 @@ import net.portalsam.currencyconverter.api.EconomyAPIContainer;
 import net.portalsam.currencyconverter.commands.ConvertBalanceCommand;
 import net.portalsam.currencyconverter.commands.ConvertCurrencyCommand;
 import net.portalsam.currencyconverter.commands.CurrencyUpdateCommand;
+import net.portalsam.currencyconverter.commands.tabcomplete.ConvertBalanceTabComplete;
+import net.portalsam.currencyconverter.commands.tabcomplete.ConvertCurrencyTabComplete;
+import net.portalsam.currencyconverter.commands.tabcomplete.CurrencyUpdateTabComplete;
 import net.portalsam.currencyconverter.configuration.Configuration;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -66,9 +69,17 @@ public final class CurrencyConverter extends JavaPlugin {
     /*/ Setup. /*/
 
     private void registerCommands() {
+
+        /*/ Command executors. /*/
         Objects.requireNonNull(this.getCommand("convertcurrency")).setExecutor(new ConvertCurrencyCommand());
         Objects.requireNonNull(this.getCommand("convertbalance")).setExecutor(new ConvertBalanceCommand());
         Objects.requireNonNull(this.getCommand("updatecurrency")).setExecutor(new CurrencyUpdateCommand());
+
+        /*/ Command tab completes. /*/
+        Objects.requireNonNull(this.getCommand("convertcurrency")).setTabCompleter(new ConvertCurrencyTabComplete());
+        Objects.requireNonNull(this.getCommand("convertbalance")).setTabCompleter(new ConvertBalanceTabComplete());
+        Objects.requireNonNull(this.getCommand("updatecurrency")).setTabCompleter(new CurrencyUpdateTabComplete());
+
     }
 
     /*/ Getters. /*/

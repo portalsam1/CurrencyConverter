@@ -29,7 +29,7 @@ commands:
   convertbalance:
     description: Convert your balance into another supported currency. (Requires Vault)
     usage: /<command> <currencyone> <currencytwo>
-    aliases: [ convbal ]
+    aliases: [ convertbal, convbal ]
     permission: currencyconverter.convertcurrency
 
   updatecurrency:

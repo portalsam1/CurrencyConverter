@@ -27,6 +27,15 @@ public class ConvertBalanceCommand implements CommandExecutor {
 
                 try {
 
+                    /*/ Store player balance. /*/
+                    double playerBalance = EconomyAPIContainer.getEcon().getBalance((Player) sender);
+
+                    /*/ If the player balance is 0, don't bother converting. /*/
+                    if(playerBalance <= 0) {
+                        sender.sendMessage(CurrencyConverter.getPluginHeader() + ": " + ChatColor.RED + "Your balance is zero! Can not convert.");
+                        return true;
+                    }
+
                     /*/ Get the converted amount. /*/
                     double convertedAmount = CurrencyProcessor.convertCurrency(EconomyAPIContainer.getEcon().getBalance((Player)sender), args[0], args[1]);
 
