@@ -71,10 +71,3 @@ Currency information is grabbed from https://free.currencyconverterapi.com/, Cur
   * **Replacing the default APIKey**
   
     • The API key this plugin uses can be found in the config.yml file under the *CurrencyConverter* folder in plugins. It is **Highly** reccomended that this be changed from the default so the plugin doesn't run out of queries when trying to get new information. You can get a new API Key at https://free.currencyconverterapi.com/free-api-key. The plugin will still function without a new API Key or if it hits the query limit, but the information given back may not be accurate. (*Currency Information embedded is from Saturday, April 17, 2021*)
-    
-  * **Default help**
-  
-    • The Default help information that will be reported by Paper.
-  
-    <img src="https://portalsam.net/wp-content/uploads/2021/04/currencyconverterhelp.png" width="732" height="160" />
-  
